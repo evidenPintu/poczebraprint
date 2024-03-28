@@ -1,0 +1,30 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button>
+    <mat-icon>menu</mat-icon>
+  </button>
+  <img src="../assets/Logo-white.png" alt="Logo" class="logo" />
+  <span class="example-spacer"></span>
+  <button mat-icon-button>
+    <mat-icon>notifications</mat-icon>
+    <mat-badge matBadge="0" matBadgeColor="warn"></mat-badge>
+  </button>
+  <button mat-icon-button [matMenuTriggerFor]="profileMenu">
+    <!-- <mat-icon>account_circle</mat-icon> -->
+    <ngx-avatars
+      [name]="userid"
+      bgColor="white"
+      fgColor="black"
+      size="43"
+      class="avatar-container"
+    ></ngx-avatars>
+  </button>
+  <mat-menu #profileMenu="matMenu">
+    <p mat-menu-item>
+      <b>Welcome,{{ userid }}</b>
+    </p>
+    <button mat-menu-item (click)="logout()">Logout</button>
+  </mat-menu>
+</mat-toolbar>
+<div class="spinner-container" *ngIf="loading">
+  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+</div>

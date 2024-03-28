@@ -1,0 +1,65 @@
+<style>
+  body {
+    font-family: "Arial", sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .pdf-template {
+    font-family: "Arial", sans-serif;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 380px;
+    margin: 20px;
+  }
+  .border {
+    border: 3px solid #333;
+    border-radius: 5px;
+    padding: 20px;
+  }
+
+  .pdf-template h1 {
+    color: #333;
+    font-size: 24px;
+  }
+
+  .shipping-details {
+    margin-top: 20px;
+  }
+
+  .shipping-details p {
+    margin: 5px 0;
+    text-align: left;
+    font-size: 13px;
+  }
+  .tenantname {
+    color: #333;
+    font-size: 24px !important;
+    font-weight: bold;
+    margin: 15px 0 !important;
+  }
+  .slp {
+    color: #333;
+    font-size: 24px !important;
+    margin: 15px 0 !important;
+  }
+</style>
+
+<!-- Dynamically fill with shipping details -->
+<div class="shipping-details">
+  <div class="border">
+    <!-- <div id="barcode-placeholder"></div> -->
+
+    <!-- <p>Inventory label SLP# {{ responseLabel }}</p> -->
+    <p class="tenantname">{{ shippingDetails.toname }}</p>
+    <p class="slp"><b>SLP#</b> {{ responseLabel }}</p>
+    <!-- <div>
+        <svg #barcode id="barcode"></svg>
+      </div> -->
+    <p><b>{{ FromName }}</b> {{ shippingDetails.fromname }}</p>
+    <p><b>{{ Carrier }}</b> {{ shippingDetails.carrier }}</p>
+    <p><b>{{ Receivingtime }}</b> {{ shippingDetails.receivetime }}</p>
+    <p><b>{{ UOMData }}</b> {{ shippingDetails.uomid }}</p>
+    <p><b>{{ Temperaturereq }}</b> {{ shippingDetails.temperaturereq }}</p>
+  </div>
+</div>

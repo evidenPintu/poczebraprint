@@ -1,0 +1,79 @@
+<div class="login--container">
+  <div class="login--container__left-side">
+    <div class="login--container__login-form">
+      <div class="login--container__logo">
+        <img src="/assets/Logo.png" alt="Logo" />
+      </div>
+      <div class="login--container__welcome">
+        <p class="mat-body-1 mat-typography">
+          {{ welcomeLabel }} <b>{{ ExpressHypeLabel }}</b>
+        </p>
+        <h1 class="mat-h1 mat-typography mat-bold">{{ LoginLabel }}</h1>
+      </div>
+      <p class="mat-body-1 mat-typography">{{ LogininwithLabel }}</p>
+      <form (ngSubmit)="login()" #loginForm="ngForm">
+        <!-- Display authentication failure message -->
+        <mat-error
+          *ngIf="loginForm.submitted && errorMessage"
+          class="login--container__error-message"
+        >
+          {{ errorMessage }}
+        </mat-error>
+        <mat-form-field appearance="fill" class="mat-input-margin-bottom">
+          <mat-label>{{ UserIDLabel }}</mat-label>
+          <input
+            matInput
+            placeholder="{{ EnteryourUserID }}"
+            [(ngModel)]="userid"
+            required
+            name="userid"
+            (focus)="hideErrorMessage()"
+            #userIdInput
+          />
+          <mat-error *ngIf="userIdFormControl.hasError('required')">
+            {{ UserIDError }}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="mat-input-margin-bottom">
+          <mat-label>{{ PasswordLabel }}</mat-label>
+          <input
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            placeholder="{{ Enteryourpassword }}"
+            [(ngModel)]="password"
+            required
+            name="password"
+            (focus)="hideErrorMessage()"
+          />
+          <mat-icon matSuffix (click)="hide = !hide">{{
+            hide ? "visibility_off" : "visibility"
+          }}</mat-icon>
+          <mat-error *ngIf="passwordFormControl.hasError('required')">{{
+            UserPasswordError
+          }}</mat-error>
+        </mat-form-field>
+        <div class="login--container__rememberme">
+          <mat-slide-toggle
+            [(ngModel)]="rememberMe"
+            color="primary"
+            (change)="onRememberMeChange($event)"
+          >
+            {{ RememberMeLabel }}
+          </mat-slide-toggle>
+        </div>
+        <button
+          mat-raised-button
+          color="primary"
+          style="width: 100%"
+          type="submit"
+        >
+          {{ LoginButtonLable }}
+        </button>
+        <div class="spinner-container" *ngIf="loading">
+          <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="login--container__right-side"></div>
+</div>

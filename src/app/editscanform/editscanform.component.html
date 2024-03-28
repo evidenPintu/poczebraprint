@@ -1,0 +1,258 @@
+<!-- Display success/error messages -->
+<div class="rowexpandcontent">
+  <div *ngIf="successMessage">{{ successMessage }}</div>
+  <mat-error *ngIf="errorMessage"
+    ><p>{{ errorMessage }}</p></mat-error
+  >
+  <h3>Edit {{ SLPData }} {{ shippingDetails.slp }}</h3>
+  <!-- home.component.html -->
+  <form (ngSubmit)="submitForm()" #shippingForm="ngForm">
+    <div class="row px-1">
+      <div class="col-md-4">
+        <div class="d-flex justify-content-between">
+          <!-- UOM -->
+          <mat-form-field
+            appearance="outline"
+            class="mat-input-margin-bottom me-3"
+          >
+            <mat-label>{{ UOMData }}</mat-label>
+            <mat-select
+              [(ngModel)]="shippingDetails.uomid"
+              name="uomid"
+              required
+            >
+              <mat-option disabled>{{ Slectoption }}</mat-option>
+              <mat-option *ngFor="let item of listuom" [value]="item.uomid">
+                {{ item.uomdesc }}
+              </mat-option>
+            </mat-select>
+            <mat-error
+              *ngIf="shippingForm.controls['uom']?.errors?.['required']"
+              >{{ UOMrequired }}</mat-error
+            >
+          </mat-form-field>
+          <!-- units -->
+          <mat-form-field appearance="outline" class="mat-input-margin-bottom">
+            <mat-label>{{ unit }}</mat-label>
+            <input
+              matInput
+              type="text"
+              placeholder="{{ Enterunit }}"
+              [(ngModel)]="shippingDetails.units"
+              name="units"
+              pattern="[0-9]+"
+              required
+              autocomplete="off"
+            />
+            <mat-error
+              *ngIf="
+    shippingForm.controls['units']?.errors?.['required']
+  "
+              >{{ unitrequired }}</mat-error
+            >
+            <mat-error
+              *ngIf="
+    shippingForm.controls['units']?.errors?.['pattern']"
+              >{{ Onlynumbers }}</mat-error
+            >
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <!-- Tem req -->
+
+        <mat-form-field appearance="outline" class="mat-input-margin-bottom">
+          <mat-label>{{ Temperaturereq }}</mat-label>
+          <mat-select
+            [(ngModel)]="shippingDetails.temperaturereq"
+            name="temperaturereq"
+            required
+          >
+            <mat-option disabled>-- select an option --</mat-option>
+            <mat-option value="true">Yes</mat-option>
+            <mat-option value="false">No</mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="
+    shippingForm.controls['temperaturereq']?.errors?.['required'] &&
+    shippingForm.controls['temperaturereq']?.touched
+  "
+            >{{ Temreqrequired }}</mat-error
+          >
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-4">
+        <!-- Appointmentid -->
+        <mat-form-field appearance="outline" class="mat-input-margin-bottom">
+          <mat-label>{{ AppointmentID }}</mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="{{ EnterAppointmentID }}"
+            [(ngModel)]="shippingDetails.appointmentid"
+            name="appointmentid"
+            pattern="[0-9]+"
+            required
+            autocomplete="off"
+            disabled
+          />
+          <mat-error
+            *ngIf="
+      shippingForm.controls['appointmentid']?.errors?.['required']
+    "
+            >{{ AppointmentIDrequired }}</mat-error
+          >
+          <mat-error
+            *ngIf="
+      shippingForm.controls['appointmentid']?.errors?.['pattern']"
+            >{{ Onlynumbers }}</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <!-- Trackingd -->
+        <mat-form-field appearance="outline" class="mat-input-margin-bottom">
+          <mat-label>{{ TrackingID }}</mat-label>
+          <input
+            matInput
+            placeholder="{{ EnterTrackingID }}"
+            [(ngModel)]="shippingDetails.trackingid"
+            name="trackingid"
+            required
+            autocomplete="off"
+          />
+          <mat-error
+            *ngIf="shippingForm.controls['trackingid']?.errors?.['required']"
+            >{{ TrackingIDrequired }}</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <!-- Formid -->
+        <mat-form-field appearance="outline" class="mat-input-margin-bottom">
+          <mat-label>{{ FormID }}</mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="{{ EnterFormID }}"
+            [(ngModel)]="shippingDetails.fromid"
+            name="fromid"
+            pattern="[0-9]+"
+            required
+            autocomplete="off"
+          />
+          <mat-error
+            *ngIf="shippingForm.controls['fromid']?.errors?.['required']"
+            >{{ FormIDrequired }}</mat-error
+          >
+          <mat-error
+            *ngIf="shippingForm.controls['fromid']?.errors?.['pattern']"
+            >{{ Onlynumbers }}</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <!-- Fromname -->
+        <mat-form-field appearance="outline" class="mat-input-margin-bottom">
+          <mat-label>{{ FromName }}</mat-label>
+          <input
+            matInput
+            placeholder="{{ EnterFromName }}"
+            [(ngModel)]="shippingDetails.fromname"
+            name="fromname"
+            required
+            autocomplete="off"
+          />
+          <mat-error
+            *ngIf="shippingForm.controls['fromname']?.errors?.['required']"
+            >{{ FromNamerequired }}</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <!-- Toid -->
+        <mat-form-field appearance="outline" class="mat-input-margin-bottom">
+          <mat-label>{{ ToID }}</mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="{{ EnterToID }}"
+            [(ngModel)]="shippingDetails.toid"
+            name="toid"
+            pattern="[0-9]+"
+            required
+            autocomplete="off"
+          />
+          <mat-error
+            *ngIf="shippingForm.controls['toid']?.errors?.['required']"
+            >{{ ToIDrequired }}</mat-error
+          >
+          <mat-error
+            *ngIf="shippingForm.controls['toid']?.errors?.['pattern']"
+            >{{ Onlynumbers }}</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <!-- Toname -->
+        <mat-form-field appearance="outline" class="mat-input-margin-bottom">
+          <mat-label>{{ ToName }}</mat-label>
+          <input
+            matInput
+            placeholder="{{ EnterToName }}"
+            [(ngModel)]="shippingDetails.toname"
+            name="toname"
+            required
+            autocomplete="off"
+          />
+          <mat-error
+            *ngIf="shippingForm.controls['toname']?.errors?.['required']"
+            >{{ ToNamerequired }}</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <!-- Carrier -->
+        <mat-form-field appearance="outline" class="mat-input-margin-bottom">
+          <mat-label>{{ Carrier }}</mat-label>
+          <input
+            matInput
+            placeholder="{{ EnterCarrier }}"
+            [(ngModel)]="shippingDetails.carrier"
+            name="carrier"
+            required
+            autocomplete="off"
+          />
+          <mat-error
+            *ngIf="shippingForm.controls['carrier']?.errors?.['required']"
+            >{{ Carrierrequired }}</mat-error
+          >
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="d-flex justify-content-end">
+            <!-- Submit and Clear buttons -->
+            <div class="example-button-row">
+              <button mat-flat-button (click)="cancelEdit()" type="button">
+                {{ cancel }}
+              </button>
+              <button mat-flat-button color="primary" type="submit">
+                {{ Update }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="visibility: hidden">
+      <input
+        type="text"
+        [(ngModel)]="shippingDetails.lastupdated"
+        name="lastupdated"
+      />
+    </div>
+  </form>
+</div>

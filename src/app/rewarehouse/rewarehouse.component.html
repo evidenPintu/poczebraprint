@@ -1,0 +1,103 @@
+<!-- Display success/error messages -->
+<!-- <div *ngIf="successMessage">{{ successMessage }}</div> -->
+<mat-error *ngIf="errorMessage"
+  ><p>{{ errorMessage }}</p></mat-error
+>
+<form #shipForm="ngForm" [formGroup]="shippingForm" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <div class="col-md-8">
+      <p class="mat-typography text-muted text-muted-right">
+        {{ Requiredfield }}
+      </p>
+      <div class="row">
+        <div class="col-md-6">
+          <mat-form-field appearance="fill" class="mat-input-margin-bottom">
+            <mat-label>{{ Location }}</mat-label>
+            <mat-select formControlName="rewarehouselocationid">
+              <mat-option disabled>-- select an option --</mat-option>
+              <mat-option
+                *ngFor="let item of listLocation"
+                [value]="item.locationid"
+              >
+                {{ item.locationname }}
+              </mat-option>
+            </mat-select>
+            <mat-error
+              *ngIf="
+                shippingForm.controls.rewarehouselocationid.invalid &&
+                (isSubmitted ||
+                  shippingForm.controls.rewarehouselocationid.dirty ||
+                  shippingForm.controls.rewarehouselocationid.touched)
+              "
+              ><span
+                *ngIf="
+                  shippingForm.controls.rewarehouselocationid?.errors?.required
+                "
+                >{{ Locationrequired }}</span
+              ></mat-error
+            >
+          </mat-form-field>
+        </div>
+        <!-- SLP -->
+        <div class="col-md-6">
+          <mat-form-field appearance="fill" class="mat-input-margin-bottom">
+            <mat-label>{{ SLPData }}</mat-label>
+            <input
+              type="text"
+              placeholder="{{ SearchSLP }}"
+              aria-label="Number"
+              matInput
+              formControlName="slp"
+              [matAutocomplete]="auto"
+              name="slp"
+            />
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+              <mat-option
+                *ngFor="let item of filteredListSlp | async"
+                [value]="item.slp"
+              >
+                {{ item.slp }}
+              </mat-option>
+              <mat-option
+                *ngIf="(filteredListSlp | async)?.length === 0"
+                disabled
+              >
+                {{ NoSLP }}
+              </mat-option>
+            </mat-autocomplete>
+            <mat-error
+              *ngIf="
+                shippingForm.controls.slp.invalid &&
+                (isSubmitted ||
+                  shippingForm.controls.slp.dirty ||
+                  shippingForm.controls.slp.touched)
+              "
+              ><span *ngIf="shippingForm.controls.slp?.errors?.required">{{
+                SLPrequired
+              }}</span></mat-error
+            >
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="d-flex justify-content-end">
+            <!-- Submit and Clear buttons -->
+            <div class="example-button-row">
+              <button mat-flat-button (click)="clearForm()" type="button">
+                Clear
+              </button>
+              <button mat-flat-button color="primary" type="submit">
+                {{ Save }}
+              </button>
+              <!-- <button mat-raised-button color="primary">Submit!</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md">
+      <!-- Content for the second column -->
+    </div>
+  </div>
+</form>

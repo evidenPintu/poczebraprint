@@ -1,0 +1,31 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "wms_id": "gtaa",
+      "active": true,
+      "created": "2024-01-04T12:12:31.000+00:00",
+      "last_updated": "2024-01-05T05:28:31.000+00:00",
+      "userId": "admin",
+      "password": "admin"
+    },
+    {
+      "id": 2,
+      "wms_id": "gtaa",
+      "active": false,
+      "created": "2024-01-04T12:12:31.000+00:00",
+      "last_updated": "2024-01-05T05:28:31.000+00:00",
+      "userId": "hari",
+      "password": "pass"
+    },
+    {
+      "id": 3,
+      "wms_id": "gtaa",
+      "active": true,
+      "created": "2024-01-04T12:12:31.000+00:00",
+      "last_updated": "2024-01-05T05:28:31.000+00:00",
+      "userId": "team",
+      "password": "pass"
+    }
+  ]
+}

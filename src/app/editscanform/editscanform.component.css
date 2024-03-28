@@ -1,0 +1,40 @@
+::ng-deep.mat-mdc-card-content {
+  border: 1px solid #ccc;
+  background: #fff;
+  min-height: 400px;
+  border-radius: 0px 14px 14px 14px;
+}
+/* Heading */
+.md-padding {
+  padding-top: 20px;
+}
+h1 {
+  font-weight: bold !important;
+}
+h3 {
+  font-weight: bold !important;
+}
+
+.mat-input-margin-bottom {
+  margin-bottom: 1px;
+  margin-top: 1x;
+  width: 100%;
+}
+::ng-deep.mat-mdc-text-field-wrapper {
+  background: #fff;
+}
+.text-muted {
+  color: #6c757d;
+}
+.text-muted-right {
+  text-align: right;
+}
+
+.rowexpandcontent {
+  max-width: 1152px;
+  background: #f6f3fb;
+  padding: 20px;
+}
+.example-button-row button {
+  margin: 8px 8px 8px 0;
+}

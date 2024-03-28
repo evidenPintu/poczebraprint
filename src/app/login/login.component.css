@@ -1,0 +1,120 @@
+.login {
+  width: 100%;
+}
+
+.login--container {
+  display: flex;
+  height: 100vh;
+  position: relative;
+}
+
+.login--container__left-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #fff;
+}
+
+.login--container__login-form {
+  /* width: 400px; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.login--container__logo img {
+  width: 120px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.login--container__welcome {
+  margin-bottom: 5px;
+}
+
+.login--container__welcome p {
+  margin-bottom: 0px;
+}
+
+.login--container__welcome h1 {
+  font-weight: bold;
+}
+
+.login--container__rememberme {
+  margin-bottom: 30px;
+}
+
+.login--container__error-message {
+  padding-bottom: 10px;
+}
+
+.mat-input-margin-bottom {
+  margin-bottom: 5px;
+  margin-top: 5x;
+  width: 100%;
+}
+
+.login--container__right-side {
+  flex: 1;
+  background-image: url("/assets/Background.jpeg");
+  background-size: cover;
+  background-position: center;
+  display: none;
+}
+
+.spinner-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(227, 227, 227, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Small devices (landscape phones, 576px and up)*/
+@media screen and (min-device-width: 320px) and (max-device-width: 767px) {
+  .login--container__login-form {
+    width: 100%;
+  }
+
+  .login--container__logo {
+    width: 50%;
+    margin: auto;
+    align-items: center;
+  }
+
+  .login--container__logo img {
+    width: 80%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+  .login--container__left-side {
+    padding: 20px;
+  }
+
+  .login--container__right-side {
+    display: block;
+  }
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+}
+
+/*  X-Large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+}
+
+/*  XX-Large devices (larger desktops, 1400px and up)*/
+@media (min-width: 1400px) {
+}

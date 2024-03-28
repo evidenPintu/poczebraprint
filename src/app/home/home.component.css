@@ -1,0 +1,27 @@
+::ng-deep.mat-mdc-card-content {
+  border: 1px solid #ccc;
+  background: #fff;
+  min-height: 400px;
+  border-radius: 0px 14px 14px 14px;
+}
+/* Heading */
+.md-padding {
+  padding-top: 20px;
+}
+h1 {
+  font-weight: bold !important;
+}
+/* breadcrumb */
+.mat-breadcrumb {
+  padding: 15px 0px;
+}
+.mat-breadcrumb a {
+  text-decoration: none;
+}
+.mat-breadcrumb span {
+  color: var(--mdc-filled-text-field-input-text-color) !important;
+}
+.mat-breadcrumb a:not(:last-child)::after {
+  content: "/";
+  margin: 0 8px;
+}

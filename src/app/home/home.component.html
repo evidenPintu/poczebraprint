@@ -1,0 +1,37 @@
+<app-headers></app-headers>
+<div class="container md-padding">
+  <div class="d-flex justify-content-between">
+    <h1 class="mat-h1 mat-typography mat-bold">{{ Inventory }}</h1>
+    <div class="mat-breadcrumb ml-auto p-2">
+      <a mat-breadcrumb-item routerLink="/home">{{ home }}</a>
+      <span mat-breadcrumb-item>{{ Inventory }}</span>
+    </div>
+  </div>
+
+  <mat-tab-group
+    mat-align-tabs="start"
+    mat-stretch-tabs="false"
+    (selectedTabChange)="tabClick($event)"
+  >
+    <!-- (selectedTabChange)="tabClick($event)" -->
+    <mat-tab label="{{ Scan }}">
+      <mat-card fxFlexAlign="stretch">
+        <mat-card-content><app-scanform></app-scanform> </mat-card-content>
+      </mat-card>
+    </mat-tab>
+    <mat-tab label="{{ Labelinformation }}">
+      <mat-card fxFlexAlign="stretch">
+        <mat-card-content>
+          <app-labelinfo *ngIf="refreshComponent"></app-labelinfo
+        ></mat-card-content>
+      </mat-card>
+    </mat-tab>
+    <mat-tab label="Rewarehouse">
+      <mat-card fxFlexAlign="stretch">
+        <mat-card-content>
+          <app-rewarehouse *ngIf="refreshComponent"></app-rewarehouse>
+        </mat-card-content>
+      </mat-card>
+    </mat-tab>
+  </mat-tab-group>
+</div>

@@ -1,0 +1,38 @@
+{
+  "countries": [
+    {
+      "name": "United States",
+      "code": "US"
+    },
+    {
+      "name": "Canada",
+      "code": "CA"
+    },
+    {
+      "name": "United Kingdom",
+      "code": "UK"
+    },
+    {
+      "name": "Australia",
+      "code": "AU"
+    }
+  ],
+  "cities": [
+    {
+      "name": "New York",
+      "country": "US"
+    },
+    {
+      "name": "Toronto",
+      "country": "CA"
+    },
+    {
+      "name": "London",
+      "country": "UK"
+    },
+    {
+      "name": "Sydney",
+      "country": "AU"
+    }
+  ]
+}
